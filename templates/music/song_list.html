@@ -1,0 +1,26 @@
+{% extends 'layout/base.html' %}
+{% block content %}
+<h1>All songs</h1>
+{% if songs %}
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Artist</th>
+            <th scope="col">Genre</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for song in songs %}
+        <tr>
+            <th scope="row"><a href="{% url 'view_song' song.slug %}">{{ song.title }}</a></th>
+            <td><a href="{% url 'view_artist' song.artist.username %}">{{ song.artist }}</a></td>
+            <td>{{ song.genre }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<h3>No songs to display. Maybe create some?</h3>
+{% endif %}
+{% endblock content %}

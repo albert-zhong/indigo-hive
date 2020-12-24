@@ -1,0 +1,15 @@
+{% extends 'layout/base.html' %}
+{% block content %}
+{% if user == song.artist %}
+<div class="container">
+    <a class="btn btn-large btn-success" href="{% url 'edit_song' song.slug %}">Edit song</a>
+</div>
+{% endif %}
+<div class="container">
+    <h1>{{ song.title }}</h1>
+    <h3>Genre: {{ song.genre }}</h3>
+    <h3>Artist: <a href="{% url 'view_artist' song.artist.username %}">{{ song.artist }}</a></h3>
+    <p>{{ song.description }}</p>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ song.youtube_id }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+{% endblock content %}

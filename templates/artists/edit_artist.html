@@ -3,11 +3,11 @@
 {% block content %}
 <div class="col-md-6 m-auto">
     <div class="card card-body mt-5">
-        <h2 class="text-center">Sign Up</h2>
+        <h2 class="text-center">Edit my profile</h2>
         <form method="post">
             {% csrf_token %}
             {{ form|crispy }}
-            <button class="btn btn-primary btn-large" type="submit">Sign Up</button>
+            <button class="btn btn-success btn-large" type="submit">Submit</button>
         </form>
     </div>
 </div>
